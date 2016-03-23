@@ -2,6 +2,8 @@ left-pad
 ========
 Go package to left pad a string with a character.
 
+Inspired by the "left-pad" NPM package (and the fiasco that happened after its removal).
+
 ### Install
 
 ```
@@ -13,8 +15,9 @@ go get github.com/keltia/leftpad
 ```Go
 import 'github.com/keltia/leftpad'
 
-leftpad.Leftpad("foo", 5)       # => "  foo"
-leftpad.Leftpad("foobar", 8)    # => "  foobar"
-leftpad.Leftpad("foobar", 6)    # => "foobar"
-leftpad.Leftpad(1, 10, 0)       # => "0000000001"
+leftpad.LeftPad("foo", 5)       # => "  foo"
+leftpad.LeftPad("foobar", 8)    # => "  foobar"
+leftpad.LeftPad("foobar", 6)    # => "foobar"
+
+leftpad.LeftPadStr("foo", 5, "X") # => "XXfoo"
 ```
