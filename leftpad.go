@@ -8,9 +8,11 @@
 
      import "leftpad"
 
-     func LefPad(s, n)
+	 // pad with spacex
+     str, err := LeftPad(s, n)
 
-     func LeftPadStr(s, n, c)
+     // pad with specified character
+     str, err := func LeftPadStr(s, n, c)
 
  */
 package leftpad
