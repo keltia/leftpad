@@ -17,6 +17,8 @@ go get github.com/keltia/leftpad
 
 ### Usage
 
+[![GoDoc](https://godoc.org/github.com/keltia/leftpad?status.svg)](https://godoc.org/github.com/keltia/leftpad)
+
 ```Go
 import 'github.com/keltia/leftpad'
 
