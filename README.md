@@ -4,6 +4,8 @@ Go package to left pad a string with a character.
 
 Inspired by the "left-pad" NPM package (and the fiasco that happened after its removal).
 
+[![GoDoc](https://godoc.org/github.com/keltia/leftpad?status.svg)](https://godoc.org/github.com/keltia/leftpad)
+
 ### Install
 
 ```
