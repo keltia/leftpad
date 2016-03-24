@@ -32,11 +32,8 @@ func LeftPadStr(s string, n int, r rune) (string, error) {
 	if n < 0 {
 		return "", fmt.Errorf("invalid length %d", n)
 	}
-
-	toAdd := n - len(s)
-	if toAdd <= 0 {
+	if len(s) > n {
 		return s, nil
 	}
-
-	return strings.Repeat(string(r), toAdd) + s, nil
+	return strings.Repeat(string(r), n-len(s)) + s, nil
 }
