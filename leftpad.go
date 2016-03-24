@@ -1,20 +1,18 @@
-// leftpad.go
-
 /*
  This package implements the leftpad function, inspired by the NPM (JS)
  package of the same name.
 
  Two functions are defined:
 
-     import "leftpad"
+ import "leftpad"
 
-	 // pad with spacex
-     str, err := LeftPad(s, n)
+ // pad with spaces
+ str, err := LeftPad(s, n)
 
-     // pad with specified character
-     str, err := func LeftPadStr(s, n, c)
+ // pad with specified character
+ str, err := func LeftPadStr(s, n, c)
 
- */
+*/
 package leftpad
 
 import (
@@ -43,9 +41,8 @@ func doLeftPad(s string, n int, c string) (string, error) {
 }
 
 func LeftPad(s string, n int) (string, error) {
-    return doLeftPad(s, n, " ")
+	return doLeftPad(s, n, " ")
 }
-
 
 func LeftPadStr(s string, n int, c string) (string, error) {
 	return doLeftPad(s, n, c)
