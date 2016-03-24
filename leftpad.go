@@ -39,9 +39,7 @@ func doLeftPad(s string, n int, c string) (string, error) {
 		return s, nil
 	}
 
-	prefix := strings.Repeat(c, toAdd)
-	final := prefix + s
-	return final, nil
+	return strings.Repeat(c, toAdd) + s, nil
 }
 
 func LeftPad(s string, n int) (string, error) {
@@ -50,6 +48,5 @@ func LeftPad(s string, n int) (string, error) {
 
 
 func LeftPadStr(s string, n int, c string) (string, error) {
-	final, err := doLeftPad(s, n, c)
-	return final, err
+	return doLeftPad(s, n, c)
 }
