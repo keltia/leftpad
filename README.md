@@ -4,6 +4,11 @@ Go package to left pad a string with a character.
 
 Inspired by the "left-pad" NPM package (and the fiasco that happened after its removal).
 
+### Build status
+
+
+Branch: master — [![master|Build Status](https://travis-ci.org/keltia/leftpad.svg?branch=master)](http://travis-ci.org/keltia/leftpad)
+
 ### Install
 
 ```
