@@ -21,6 +21,7 @@ import (
 	"strings"
 )
 
+// ErrInvalidChar indicates the pad character is too long.
 var ErrInvalidChar = errors.New("Invalid character")
 
 func doLeftPad(s string, n int, c string) (string, error) {
@@ -40,10 +41,14 @@ func doLeftPad(s string, n int, c string) (string, error) {
 	return strings.Repeat(c, toAdd) + s, nil
 }
 
+// LeftPad left-pads s with spaces, to length n.
+// If n is smaller than s, LeftPad is a no-op.
 func LeftPad(s string, n int) (string, error) {
 	return doLeftPad(s, n, " ")
 }
 
+// LeftPadStr left-pads s with the char c, to length n.
+// If n is smaller than s, LeftPadStr is a no-op.
 func LeftPadStr(s string, n int, c string) (string, error) {
 	return doLeftPad(s, n, c)
 }
