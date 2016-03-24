@@ -1,18 +1,3 @@
-/*
- This package implements the leftpad function, inspired by the NPM (JS)
- package of the same name.
-
- Two functions are defined:
-
- import "leftpad"
-
- // pad with spaces
- str, err := LeftPad(s, n)
-
- // pad with specified character
- str, err := func LeftPadStr(s, n, c)
-
-*/
 package leftpad
 
 import (
