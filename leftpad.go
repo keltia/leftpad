@@ -20,15 +20,15 @@ import (
 	"strings"
 )
 
-// LeftPad left-pads s with spaces, to length n.
-// If n is smaller than s, LeftPad is a no-op.
-func LeftPad(s string, n int) (string, error) {
-	return LeftPadStr(s, n, ' ')
+// Pad left-pads s with spaces, to length n.
+// If n is smaller than s, Pad is a no-op.
+func Pad(s string, n int) (string, error) {
+	return PadChar(s, n, ' ')
 }
 
-// LeftPadStr left-pads s with the rune r, to length n.
-// If n is smaller than s, LeftPadStr is a no-op.
-func LeftPadStr(s string, n int, r rune) (string, error) {
+// PadChar left-pads s with the rune r, to length n.
+// If n is smaller than s, PadChar is a no-op.
+func PadChar(s string, n int, r rune) (string, error) {
 	if n < 0 {
 		return "", fmt.Errorf("invalid length %d", n)
 	}
