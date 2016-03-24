@@ -16,14 +16,13 @@
 package leftpad
 
 import (
-	"errors"
 	"fmt"
 	"strings"
 )
 
 func doLeftPad(s string, n int, r rune) (string, error) {
 	if n < 0 {
-		return "", errors.New(fmt.Sprintf("Invalid length %d", n))
+		return "", fmt.Errorf("invalid length %d", n)
 	}
 
 	toAdd := n - len(s)
