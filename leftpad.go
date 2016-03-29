@@ -1,52 +1,24 @@
-// leftpad.go
-
-/*
- This package implements the leftpad function, inspired by the NPM (JS)
- package of the same name.
-
- Two functions are defined:
-
-     import "leftpad"
-
-	 // pad with spacex
-     str, err := LeftPad(s, n)
-
-     // pad with specified character
-     str, err := func LeftPadStr(s, n, c)
-
- */
 package leftpad
 
 import (
-	"errors"
 	"fmt"
 	"strings"
 )
 
-var ErrInvalidChar = errors.New("Invalid character")
+// Pad left-pads s with spaces, to length n.
+// If n is smaller than s, Pad is a no-op.
+func Pad(s string, n int) (string, error) {
+	return PadChar(s, n, ' ')
+}
 
-func doLeftPad(s string, n int, c string) (string, error) {
+// PadChar left-pads s with the rune r, to length n.
+// If n is smaller than s, PadChar is a no-op.
+func PadChar(s string, n int, r rune) (string, error) {
 	if n < 0 {
-		return "", errors.New(fmt.Sprintf("Invalid length %d", n))
+		return "", fmt.Errorf("invalid length %d", n)
 	}
-
-	if len(c) != 1 {
-		return "", ErrInvalidChar
-	}
-
-	toAdd := n - len(s)
-	if toAdd <= 0 {
+	if len(s) > n {
 		return s, nil
 	}
-
-	return strings.Repeat(c, toAdd) + s, nil
-}
-
-func LeftPad(s string, n int) (string, error) {
-    return doLeftPad(s, n, " ")
-}
-
-
-func LeftPadStr(s string, n int, c string) (string, error) {
-	return doLeftPad(s, n, c)
+	return strings.Repeat(string(r), n-len(s)) + s, nil
 }

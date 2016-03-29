@@ -1,49 +1,50 @@
-// leftpad_test.go
-
-/*
-  These are the tests for the leftpad package.
- */
 package leftpad
 
-import (
-	"testing"
-	"fmt"
-)
+import "testing"
 
-var (
-	basic = "foo"
-)
-
-func TestLeftPad(t *testing.T) {
-	res, err := LeftPad(basic, 2)
-	if res != basic || err != nil {
-		t.Errorf(fmt.Sprintf("Strings should match! res='%s'", res))
-	}
-
-	res, err = LeftPad(basic, 3)
-	if res != basic || err != nil {
-		t.Errorf(fmt.Sprintf("Strings should match! res='%s'", res))
-	}
-
-	res, err = LeftPad(basic, 5)
-	if res != "  foo" || err != nil {
-		t.Errorf(fmt.Sprintf("Error: '%s' should be '  foo'", res))
+func TestPad(t *testing.T) {
+	for _, testcase := range []struct {
+		s    string
+		n    int
+		want string
+	}{
+		{"foo", 2, "foo"},
+		{"foo", 3, "foo"},
+		{"foo", 4, " foo"},
+		{"foo", 5, "  foo"},
+	} {
+		have, err := Pad(testcase.s, testcase.n)
+		if err != nil {
+			t.Errorf("Pad(%q, %d): %v", testcase.s, testcase.n, err)
+			continue
+		}
+		if want := testcase.want; want != have {
+			t.Errorf("Pad(%q, %d): want %q, have %q", testcase.s, testcase.n, want, have)
+			continue
+		}
 	}
 }
 
-func TestLeftPadStr(t *testing.T) {
-	res, err := LeftPadStr(basic, 2, "X")
-	if res != basic || err != nil {
-		t.Errorf(fmt.Sprintf("Strings should match! res='%s'", res))
-	}
-
-	res, err = LeftPadStr(basic, 3, "X")
-	if res != basic || err != nil {
-		t.Errorf(fmt.Sprintf("Strings should match! res='%s'", res))
-	}
-
-	res, err = LeftPadStr(basic, 5, "X")
-	if res != "XXfoo" || err != nil {
-		t.Errorf(fmt.Sprintf("Error: '%s' should be 'XXfoo'", res))
+func TestPadChar(t *testing.T) {
+	for _, testcase := range []struct {
+		s    string
+		n    int
+		r    rune
+		want string
+	}{
+		{"foo", 2, 'X', "foo"},
+		{"foo", 3, 'X', "foo"},
+		{"foo", 4, 'X', "Xfoo"},
+		{"foo", 5, 'X', "XXfoo"},
+	} {
+		have, err := PadChar(testcase.s, testcase.n, testcase.r)
+		if err != nil {
+			t.Errorf("PadChar(%q, %d, %c): %v", testcase.s, testcase.n, testcase.r, err)
+			continue
+		}
+		if want := testcase.want; want != have {
+			t.Errorf("Pad(%q, %d, %c): want %q, have %q", testcase.s, testcase.n, testcase.r, want, have)
+			continue
+		}
 	}
 }
