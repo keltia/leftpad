@@ -47,4 +47,8 @@ func TestPadChar(t *testing.T) {
 			continue
 		}
 	}
+	have, err := PadChar("foo", -1, 'X')
+	if err == nil || have != ""{
+		t.Error("PadChar with negative number should be an error")
+	}
 }
