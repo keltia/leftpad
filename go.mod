@@ -1,1 +1,1 @@
-module "github.com/keltia/leftpad"
+module github.com/keltia/leftpad
